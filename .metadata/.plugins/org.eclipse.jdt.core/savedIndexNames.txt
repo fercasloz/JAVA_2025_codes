@@ -1,0 +1,10 @@
+INDEX VERSION 1.134+/Users/fernando/Desktop/0001 PROGRAMACION/04_pild_info_java/.metadata/.plugins/org.eclipse.jdt.core
+3785927697.index
+3116858000.index
+4198939195.index
+3810667483.index
+320342267.index
+217906737.index
+3613408284.index
+1827181813.index
+1865797976.index

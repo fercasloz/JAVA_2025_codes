@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+/Users/fernando/Desktop/0001 PROGRAMACION/04_pild_info_java/udemy_course/.metadata/.plugins/org.eclipse.jdt.core
+3042681240.index
+1865797976.index
+4105916622.index
