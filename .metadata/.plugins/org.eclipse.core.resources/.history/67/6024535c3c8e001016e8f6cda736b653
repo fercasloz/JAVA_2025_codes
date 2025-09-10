@@ -209,8 +209,6 @@ class MarcoRebote extends JFrame{
 		
 		boton.addActionListener(oyente);
 		
-		//probando github
-		
 	}
 	
 	//Añade pelota y la bota 1000 veces
