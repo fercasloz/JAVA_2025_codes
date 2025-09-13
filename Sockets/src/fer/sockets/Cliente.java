@@ -2,7 +2,6 @@ package fer.sockets;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.io.*;
 
 import javax.swing.*;
@@ -67,9 +66,18 @@ class LaminaMarcoCliente extends JPanel{
 				
 				PaqueteEnvio datos = new PaqueteEnvio();
 				
+				
+				//Se crea una instancia del paquete a enviar
+				
 				datos.setNick(nick.getText());
 				datos.setIp(ip.getText());
 				datos.setMensaje(campo1.getText());
+				
+				//Enviamos el paquete por la red
+				
+				ObjectOutputStream paquete_datos = new ObjectOutputStream(misocket.getOutputStream());
+				paquete_datos.writeObject(datos);
+				misocket.close();
 				
 				/*
 				DataOutputStream flujo_salida = new DataOutputStream(misocket.getOutputStream());
@@ -104,7 +112,7 @@ class LaminaMarcoCliente extends JPanel{
 
 
 
-class PaqueteEnvio{
+class PaqueteEnvio implements Serializable{
 	
 	private String nick, ip, mensaje;
 

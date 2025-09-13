@@ -39,22 +39,38 @@ class MarcoServidor extends JFrame implements Runnable{
 		try {
 			ServerSocket servidor = new ServerSocket(9999);
 			
+			//para la serialización, alamacenamos la informacion que le llega
+			String nick,ip,mensaje; 
+			//La instacia del paquete que envia el cliente
+			PaqueteEnvio paquete_recibido;
+			
 			while(true) {
 				Socket misocket = servidor.accept();
 			
+				/*
 				DataInputStream flujo_entrada = new DataInputStream(misocket.getInputStream());
-			
-				String mensaje_texto = flujo_entrada.readUTF();
-			
+				String mensaje_texto = flujo_entrada.readUTF();		
 				areatexto.append("\n" + mensaje_texto);
-			
+				*/
+				
+				ObjectInputStream paquete_datos = new ObjectInputStream(misocket.getInputStream());
+				paquete_recibido = (PaqueteEnvio) paquete_datos.readObject();
+				
+				nick = paquete_recibido.getNick();
+				ip = paquete_recibido.getIp();
+				mensaje = paquete_recibido.getMensaje();
+				
+				areatexto.append("\n" + nick + ": " + mensaje + " para " + ip);
+				
+				
+				
 				misocket.close();
 			}
 			
-		} catch (IOException e) {
+		} catch (IOException | ClassNotFoundException e) { //dos excepciones la de conexion y la de paquete recibido
 			
 			e.printStackTrace();
-		}
+		} 
 		
 	}
 	
