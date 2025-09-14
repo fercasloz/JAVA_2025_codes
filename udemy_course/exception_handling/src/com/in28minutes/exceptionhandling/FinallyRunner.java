@@ -9,7 +9,7 @@ public class FinallyRunner {
 		Scanner scanner = null;
 		
 		try {
-			
+			//estoy probando la edición desde github
 			scanner = new Scanner(System.in);
 		
 			int[] numbers = {12,3,4,5};
