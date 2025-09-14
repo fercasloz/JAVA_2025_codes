@@ -63,6 +63,16 @@ class MarcoServidor extends JFrame implements Runnable{
 				areatexto.append("\n" + nick + ": " + mensaje + " para " + ip);
 				
 				
+				//crear otro socket para otro cliente ponerlo en contacto con el servidor
+				
+				Socket enviaDestinatario = new Socket(ip,9090); // puente entre servidor y cliente destinatario
+				
+				ObjectOutputStream paqueteReenvio = new ObjectOutputStream(enviaDestinatario.getOutputStream());
+				
+				paqueteReenvio.writeObject(paquete_recibido);
+				
+				enviaDestinatario.close();
+				
 				
 				misocket.close();
 			}
